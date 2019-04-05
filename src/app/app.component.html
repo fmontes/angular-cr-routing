@@ -1,5 +1,22 @@
 <header>
     <h1>Header</h1>
+    <nav>
+        <ul>
+            <li>
+                <a
+                    routerLink="/"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >Home</a>
+            </li>
+            <li>
+                <a
+                    routerLink="/cr"
+                    routerLinkActive="active"
+                    >Costa Rica</a>
+            </li>
+        </ul>
+    </nav>
 </header>
 <router-outlet></router-outlet>
 <footer>
