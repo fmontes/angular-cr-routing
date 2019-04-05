@@ -10,7 +10,11 @@ const routes: Routes = [
     },
     {
         path: 'cr',
-        component: CostaRicaComponent
+        component: CostaRicaComponent,
+    },
+    {
+        path: 'beaches',
+        loadChildren: './pages/beaches/beaches.module#BeachesModule'
     }
 ];
 
