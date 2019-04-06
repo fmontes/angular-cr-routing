@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Beach, BeachesService } from 'src/app/services/beaches.service';
 
 @Component({
     selector: 'app-beaches',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./beaches.component.scss']
 })
 export class BeachesComponent implements OnInit {
-    constructor() {}
+    content: Beach[] = [];
 
-    ngOnInit() {}
+    constructor(private beachService: BeachesService) {}
+
+    ngOnInit() {
+        this.beachService.getBeaches().subscribe((beaches: Beach[]) => {
+            this.content = beaches;
+        });
+    }
 }
