@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Beach, BeachesService } from 'src/app/services/beaches.service';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 @Component({
     selector: 'app-beaches',
@@ -7,13 +10,11 @@ import { Beach, BeachesService } from 'src/app/services/beaches.service';
     styleUrls: ['./beaches.component.scss']
 })
 export class BeachesComponent implements OnInit {
-    content: Beach[] = [];
+    content$: Observable<Beach[]>;
 
-    constructor(private beachService: BeachesService) {}
+    constructor(private router: ActivatedRoute) {}
 
     ngOnInit() {
-        this.beachService.getBeaches().subscribe((beaches: Beach[]) => {
-            this.content = beaches;
-        });
+        this.content$ = this.router.data.pipe(pluck('beaches'));
     }
 }

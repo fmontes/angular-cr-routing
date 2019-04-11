@@ -47,11 +47,12 @@ export class BeachesService {
                     name: beach.name
                 };
             }),
-            toArray()
+            toArray(),
+            delay(1000)
         );
     }
 
     getBeach(id: string): Observable<Beach> {
-        return from(data).pipe(filter((beach: Beach) => beach.id === id), delay(2000));
+        return from(data).pipe(filter((beach: Beach) => beach.id === id), delay(1000));
     }
 }
