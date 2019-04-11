@@ -1,4 +1,6 @@
 <h1>Beaches</h1>
 <ul>
-    <li *ngFor="let beach of content$ | async">{{beach.name}}</li>
+    <li *ngFor="let beach of (content$ | async)">
+        <a [routerLink]="beach.id"> {{ beach.name }}</a>
+    </li>
 </ul>

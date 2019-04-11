@@ -1,0 +1,7 @@
+<ng-container *ngIf="beach$ | async as beach">
+    <img [src]="beach.img" [alt]="beach.name">
+    <div class="content">
+        <h2>{{beach.name}}</h2>
+        <p>{{beach.desc}}</p>
+    </div>
+</ng-container>
