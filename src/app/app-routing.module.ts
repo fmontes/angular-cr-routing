@@ -16,14 +16,15 @@ const routes: Routes = [
     },
     {
         path: 'beaches',
-        loadChildren: './pages/beaches/beaches.module#BeachesModule'
+        loadChildren: () => import('./pages/beaches/beaches.module').then(m => m.BeachesModule)
     }
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, {
-        enableTracing: true
-    })],
+    enableTracing: true,
+    relativeLinkResolution: 'legacy'
+})],
     exports: [RouterModule]
 })
 export class AppRoutingModule {}
